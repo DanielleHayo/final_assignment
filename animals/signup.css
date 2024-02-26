@@ -1,0 +1,38 @@
+.pics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.pic img{
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.pic:hover img{
+   box-shadow: 5px 5px 5px 5px white;
+  background-color: aliceblue;
+}
+
+.pic input{
+    opacity: 0;
+}
+
+
+.body{
+    size: inherit;
+    background-image:url(./images/empty-banner-template-with-wild-animals_1308-138488.jpg) ;
+    background-repeat:no-repeat ;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}

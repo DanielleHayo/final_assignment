@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signup</title>
-    <script src="./main.js"></script>
-  </head>
-  <body>
-    <form id="create-visitor-form">
-      <lable for="full_name">Full Name: </lable>
-      <input type="text" name="full_name" id="full_name" required>
-      <br>
-      <br>
-      <input type="submit" value="submit">
 
-    </form>
-   
-    <!-- צרו טופס יצירת אורח חדש -->
-    <!-- לאחר יצירה, הוסיפו אותו למערך האורחים ושמרו את מערך האורחים המעודכן בלוקל סטורג' -->
-    <!-- עברו לעמוד התחברות כדי לבחור את האורח שאיתו תכנסו לגן החיות -->
-    <!-- ממשו את הלוגיקה של היצירה, בפונקציה שהוגדרה מראש בקובץ signup.js -->
-    <script src="./signup.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./signup.css"/>
+  <title>Signup</title>
+  <script src="./main.js"></script>
+</head>
+
+<body class ="body">
+  <h1>Welcom to Our Zoo!</h1>
+  <form id="create-visitor-form">
+    <lable for="full_name">Full Name: </lable>
+    <input type="text" name="full_name" id="full_name" required>
+    <br>
+    <br>
+    <div class="pics">
+      <label class="pic">
+        <input type="radio" name="image" id ="image" value="boy"></input>
+        <img src="./images/boy.png" alt="boy">
+      </label>
+      <label class="pic">
+        <input type="radio" name="image"  id ="image" value="man"></input>
+        <img src="./images/dad.png" alt="man">
+      </label class="pic">
+      <label class="pic">
+        <input type="radio" name="image"  id ="image" value="woman"></input>
+        <img src="./images/mom.png" alt="woman">
+      </label>
+      <label class="pic">
+        <input type="radio" name="image"  id ="image" value="girl"></input>
+        <img src="./images/girl.png" alt="girl">
+      </label>
+    </div>
+    <br>
+    <input type="submit" value="submit">
+  </form>
+
+
+  <!-- צרו טופס יצירת אורח חדש -->
+  <!-- לאחר יצירה, הוסיפו אותו למערך האורחים ושמרו את מערך האורחים המעודכן בלוקל סטורג' -->
+  <!-- עברו לעמוד התחברות כדי לבחור את האורח שאיתו תכנסו לגן החיות -->
+  <!-- ממשו את הלוגיקה של היצירה, בפונקציה שהוגדרה מראש בקובץ signup.js -->
+  <script src="./signup.js"></script>
+</body>
+
 </html>

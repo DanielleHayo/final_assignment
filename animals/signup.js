@@ -1,42 +1,44 @@
 function createNewVisitor(event) {
   event.preventDefault();
-  let name = document.getElementById("full_name").value
+  const nameFromHtml = document.getElementById("full_name").value
+  const imageFromHtml = document.querySelector('input[name="image"]:checked').value
   const validateFormInputs = () => {
-    if (name !== 0) { return true }
-    else {
-      return false
+    let checkIfWrong= /[^a-zA-Z\s]/;
+    if( checkIfWrong.test(nameFromHtml)){
+      alert("invalid full name. try only letters and spaces")
+      return false 
+    }
+    else
+    {
+     return true
     }
   }
 
   const visitorExists = (name) => {
-    visitors.forEach((visitor) => {
-      if (validateFormInputs() === true) {
-        if (name === visitor) {
-          return true
-        }
-        else {
-          return false
-        }
-      }
-    })
+    if (validateFormInputs() === true) {
+      return visitors.some((visitor) => visitor.name === name);
+    }
   }
 
   const makeVisitor = (name) => {
-    visitors.forEach((visitor) => {
-      if (visitorExists() === false) {
-        const newVisitor = {
-          name: name,
-          coins: 50,
-        }
-        visitors.push(newVisitor)
-        return newVisitor
+    let isVisitorExist = visitorExists(name)
+
+    if (!isVisitorExist) {
+      const newVisitor = {
+        name: name,
+        image : imageFromHtml,
+        coins: 50,
       }
-      else {
-        return alert("this user allready exist")
-      }
-    })
+      visitors.push(newVisitor)
+    } 
+    else {
+      alert("This user is already exist")
+    }
   }
-  makeVisitor()
+  makeVisitor(nameFromHtml)
+  localStorage.setItem("visitors", JSON.stringify(visitors))
+  console.log(visitors)
+  window.location.href = "/login.html"
 }
 
 /**************************************

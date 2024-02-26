@@ -1,8 +1,10 @@
 // מערכים גלובלים שישמשו אותנו בכל העמודים
+
 let visitors = [
   {
     name: "John Smith",
     coins: 50,
+    
   },
   {
     name: "Emily Johnson",
@@ -12,74 +14,13 @@ let visitors = [
     name: "Michael Williams",
     coins: 50,
   },
+  
   {
     name: "Jessica Brown",
     coins: 50,
+  
   },
-  {
-    name: "Christopher Jones",
-    coins: 50,
-  },
-  {
-    name: "Ashley Davis",
-    coins: 50,
-  },
-  {
-    name: "Matthew Miller",
-    coins: 50,
-  },
-  {
-    name: "Amanda Wilson",
-    coins: 50,
-  },
-  {
-    name: "David Moore",
-    coins: 50,
-  },
-  {
-    name: "Sarah Taylor",
-    coins: 50,
-  },
-  {
-    name: "James Anderson",
-    coins: 50,
-  },
-  {
-    name: "Jennifer Thomas",
-    coins: 50,
-  },
-  {
-    name: "Robert Jackson",
-    coins: 50,
-  },
-  {
-    name: "Elizabeth White",
-    coins: 50,
-  },
-  {
-    name: "Daniel Harris",
-    coins: 50,
-  },
-  {
-    name: "Melissa Martin",
-    coins: 50,
-  },
-  {
-    name: "William Thompson",
-    coins: 50,
-  },
-  {
-    name: "Linda Garcia",
-    coins: 50,
-  },
-  {
-    name: "Joseph Martinez",
-    coins: 50,
-  },
-  {
-    name: "Karen Robinson",
-    coins: 50,
-  },
+
 ];
 
 let animals = [
