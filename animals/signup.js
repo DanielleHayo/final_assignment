@@ -16,7 +16,7 @@ function createNewVisitor(event) {
 
   const visitorExists = (name) => {
     if (validateFormInputs() === true) {
-      return visitors.some((visitor) => visitor.name === name);
+      return animals.some((visitor) => visitor.name === name);
     }
   }
 
@@ -29,15 +29,15 @@ function createNewVisitor(event) {
         image : imageFromHtml,
         coins: 50,
       }
-      visitors.push(newVisitor)
+      animals.push(newVisitor)
     } 
     else {
       alert("This user is already exist")
     }
   }
   makeVisitor(nameFromHtml)
-  localStorage.setItem("visitors", JSON.stringify(visitors))
-  console.log(visitors)
+  localStorage.setItem("visitors", JSON.stringify(animals))
+  console.log(animals)
   window.location.href = "/login.html"
 }
 

@@ -32,3 +32,11 @@
     gap: 15px;
     flex-wrap: wrap;
 }
+.image-login{
+    width: 200px;
+    height: 200px;
+
+}
+.logged-in{
+    border:2px black solid
+}

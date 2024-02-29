@@ -4,24 +4,30 @@ let visitors = [
   {
     name: "John Smith",
     coins: 50,
-    
+    image:'dad'
+
   },
   {
     name: "Emily Johnson",
     coins: 50,
+    image:'mom'
   },
   {
     name: "Michael Williams",
     coins: 50,
+    image:'boy'
   },
-  
+
   {
     name: "Jessica Brown",
     coins: 50,
-  
+image:'girl'
   },
 
 ];
+
+  // let feededAnimals={'tiger':4,'lion':0}
+  // feededAnimals[animal]++;
 
 let animals = [
   {
@@ -120,4 +126,9 @@ generateDataset();
 function logout() {
   //ממשו את הלוגיקה שמתנתקת מאורח מחובר
   // שימו לב לנקות את השדה המתאים בלוקל סטורג'
+  const wantToLogOut = confirm("You are already logged in, do you want to switch?")
+  if (wantToLogOut) {
+    localStorage.setItem("loggedInAs", '');
+
+  }
 }

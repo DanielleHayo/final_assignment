@@ -1,0 +1,25 @@
+.animal-card div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 200px;
+    background-color: aqua;
+}
+
+
+#animal-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.filters{
+display: flex;
+flex-direction: row;
+gap: 40px;
+
+}
