@@ -121,7 +121,7 @@ function generateDataset() {
 }
 generateDataset();
 
-let history = [...animals.map(animal=>{return {name:animal.name,visited:0,feeded:0}})]
+let history = [...animals.map(animal => { return { name: animal.name, visited: 0, feeded: 0 } })]
 
 if (localStorage.getItem("history")) {
   history = JSON.parse(localStorage.getItem("history"));
@@ -141,7 +141,37 @@ function logout() {
   }
 }
 
+function updateUserInfo() {
+  document.getElementById('user-info').innerText = currentVisitor ? `Hey ${currentVisitor.name}, coins: ${currentVisitor.coins}` : "Hey Guest!"
+}
 
-function generateNavBar(){
-  
+function showNavBar() {
+  const navbar = document.createElement('nav');
+  navbar.style.position = "fixed";
+  navbar.style.display = "flex";
+  navbar.style.top = '0';
+  navbar.style.width = '100%';
+  navbar.style.justifyContent = 'space-evenly';
+  //TODO: move to global css with a class
+  // TODO: set loggedAs on change user
+  const visitorsDropDownOptions = visitors.map(visitor => `<option value="${visitor.name}" ${visitor.name == currentVisitorName ? "selected" : ""} >${visitor.name}</option>`)
+
+  navbar.innerHTML = `
+<div id="user-info"></div>
+<div>navigations</div>
+<div><button id="reset">reset local storage</button></div>
+<div>
+<select  name="visitors" id="visitors-select">
+${visitorsDropDownOptions}
+</select>
+</div>
+`;
+  document.body.appendChild(navbar)
+  document.getElementById('reset').addEventListener('click', resetLocalStorage);
+  updateUserInfo()
+}
+
+function resetLocalStorage() {
+  localStorage.clear()
+  window.location.href = "./login.html"
 }

@@ -111,3 +111,4 @@ function showFavoriteAnimal() {
 
 }
 showFavoriteAnimal();
+showNavBar();

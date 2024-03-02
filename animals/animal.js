@@ -7,7 +7,7 @@ function renderAnimal() {
   const visited = history.find(a => a.name == selectedAnimalName);
   visited.visited++
   localStorage.setItem('history', JSON.stringify(history));
-
+  document.getElementById('name').innerHTML = selectedAnimal.name
   document.getElementById('color').innerHTML = selectedAnimal.color
   document.getElementById('weight').innerHTML = selectedAnimal.weight
   document.getElementById('height').innerHTML = selectedAnimal.height
@@ -43,43 +43,48 @@ function renderRelatedAnimals() {
 }
 renderRelatedAnimals()
 
-const getCloseButtonHTML = () => {
+const getCloseButtonHTML = (buttonMessage, buttonFunction) => {
   const closeButton = document.createElement('button');
 
-  closeButton.innerText = "Close";
+  closeButton.innerText = buttonMessage
 
 
   closeButton.addEventListener('click', (e) => {
     e.stopPropagation(); // Stop event propagation
 
-    const d = document.getElementById('feed-me-dialog');
-
-    d.close();
+    buttonFunction();
   })
   return closeButton;
 }
+
 
 
 const buttonFeedMe = document.querySelector("#feed-animal")
 const dialog = document.createElement("dialog");
 dialog.id = "feed-me-dialog"
 
+function closeDialog(){
+  dialog.close()
+}
 
 dialog.innerHTML = "<h1>Thank You For Feeding Me</h1>"
-dialog.append(getCloseButtonHTML())
-
+dialog.append(getCloseButtonHTML("Close", closeDialog));
 buttonFeedMe.insertAdjacentElement("afterbegin", dialog);
+
 
 
 function visitorGotEaten() {
   // ממשו את הלוגיקה של חיה שטורפת אורח
-  visitors = visitors.filter(visitor => visitor.name != selectedVisitorName)
+  visitors = visitors.filter(visitor => visitor.name != currentVisitorName)
+  localStorage.setItem('visitors', JSON.stringify(visitors));
+  localStorage.setItem("loggedInAs","");
 }
 
 function animalEscaped() {
   //ממשו את הלוגיקה של חיה שבורחת מגן החיות
   animals = animals.filter(animal => animal.name != selectedAnimalName)
-
+  localStorage.setItem('animals', JSON.stringify(animals));
+  localStorage.setItem("selectedAnimal","");
 }
 
 function feedAnimal() {
@@ -88,19 +93,20 @@ function feedAnimal() {
 
   if (currentVisitor.coins >= 2) {
     currentVisitor.coins -= 2;
-
+    localStorage.setItem('visitors',JSON.stringify(visitors))
     const feeded = history.find(a => a.name == selectedAnimalName);
     feeded.feeded++;
-localStorage.setItem('history',JSON.stringify(history))
-
+    localStorage.setItem('history', JSON.stringify(history))
+    updateUserInfo()
     showModal();
   } else {
-
     if (selectedAnimal.isPredator) {
       showModal(`You got eaten by ${selectedAnimalName}!`)
+      dialog.append(getCloseButtonHTML("Back to Login", ()=>window.location.href="./login.html"));
       visitorGotEaten()
     } else {
       showModal(`The ${selectedAnimalName} has esacped!`)
+      dialog.append(getCloseButtonHTML("Back to Zoo", ()=>window.location.href="./zoo.html"));
       animalEscaped()
     }
   }
@@ -117,5 +123,5 @@ buttonFeedMe.addEventListener("click", (e) => {
   feedAnimal()
 });
 
-
+showNavBar();
 

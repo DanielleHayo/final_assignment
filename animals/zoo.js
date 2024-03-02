@@ -71,6 +71,7 @@ const colorHtmls = document.querySelectorAll('a[name="color"]');
 colorHtmls.forEach(colorElement => colorElement.addEventListener("click", (e) => setFilter('color', colorElement.innerHTML)))
 
 // TODO: add weigth, habitat (and also in html!!!)
+// TODO: reset filter
 const heigthHtmls = document.querySelectorAll('a[name="height"]');
 heigthHtmls.forEach(colorElement => colorElement.addEventListener("click", (e) => setFilter('height', colorElement.innerHTML)))
 
@@ -110,3 +111,6 @@ const searchBox = () => {
 };
 
 searchBox();
+const currentVisitorName = localStorage.getItem('loggedInAs');
+const currentVisitor = visitors.filter(visitor => visitor.name == currentVisitorName)[0];
+showNavBar();

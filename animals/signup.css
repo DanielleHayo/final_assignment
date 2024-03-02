@@ -12,7 +12,7 @@
     border-radius: 10px;
 }
 
-.pic:hover img{
+.pic:hover img, .image:checked + img{
    box-shadow: 5px 5px 5px 5px white;
   background-color: aliceblue;
 }
