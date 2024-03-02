@@ -4,6 +4,9 @@ const selectedAnimal = animals.filter(animal => animal.name == selectedAnimalNam
 function renderAnimal() {
   //הציגו את החיה שאליה עברתם מעמוד גן החיות ששמורה בלוקל סטורג'
   // רנדרו את פרטי החיה לתוך האלמנטים המתאימים בהתאם לשדה הספציפי
+  const visited = history.find(a => a.name == selectedAnimalName);
+  visited.visited++
+  localStorage.setItem('history', JSON.stringify(history));
 
   document.getElementById('color').innerHTML = selectedAnimal.color
   document.getElementById('weight').innerHTML = selectedAnimal.weight
@@ -83,12 +86,16 @@ function feedAnimal() {
   // ממשו את הלוגיקה של האכלת חיה
   // במידה ואין מספיק מטבעות, טפלו בהתאם להנחיות במטלה
 
-  //TODO: add coin logic
-
   if (currentVisitor.coins >= 2) {
     currentVisitor.coins -= 2;
+
+    const feeded = history.find(a => a.name == selectedAnimalName);
+    feeded.feeded++;
+localStorage.setItem('history',JSON.stringify(history))
+
     showModal();
   } else {
+
     if (selectedAnimal.isPredator) {
       showModal(`You got eaten by ${selectedAnimalName}!`)
       visitorGotEaten()

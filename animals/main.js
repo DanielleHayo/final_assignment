@@ -4,30 +4,28 @@ let visitors = [
   {
     name: "John Smith",
     coins: 50,
-    image:'dad'
+    image: 'dad'
 
   },
   {
     name: "Emily Johnson",
     coins: 50,
-    image:'mom'
+    image: 'mom'
   },
   {
     name: "Michael Williams",
     coins: 50,
-    image:'boy'
+    image: 'boy'
   },
 
   {
     name: "Jessica Brown",
     coins: 50,
-image:'girl'
+    image: 'girl'
   },
 
 ];
 
-  // let feededAnimals={'tiger':4,'lion':0}
-  // feededAnimals[animal]++;
 
 let animals = [
   {
@@ -104,6 +102,7 @@ let animals = [
   },
 ];
 
+
 // פונקציה זו טוענת עבורכם את המידע ההתחלתי של האפליקציה, במידה וקיים מידע בלוקל סטורג׳, היא תקח אותו משם
 // אל תשנו את הקוד בפונקציה הזו כדי לשמור על תקינות הטמפלייט
 function generateDataset() {
@@ -122,6 +121,15 @@ function generateDataset() {
 }
 generateDataset();
 
+let history = [...animals.map(animal=>{return {name:animal.name,visited:0,feeded:0}})]
+
+if (localStorage.getItem("history")) {
+  history = JSON.parse(localStorage.getItem("history"));
+} else {
+  localStorage.setItem("history", JSON.stringify(history));
+}
+
+
 //********************** */
 function logout() {
   //ממשו את הלוגיקה שמתנתקת מאורח מחובר
@@ -131,4 +139,9 @@ function logout() {
     localStorage.setItem("loggedInAs", '');
 
   }
+}
+
+
+function generateNavBar(){
+  
 }
