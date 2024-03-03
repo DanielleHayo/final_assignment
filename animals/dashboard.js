@@ -1,9 +1,8 @@
 function showVisitedAnimals() {
-  //ממשו את הלוגיקה שמציגה את החיות שהאורח הנוכחי ביקר בהן
   const visitedCanvas = document.createElement('canvas');;
   visitedCanvas.id = 'visitedChart';
-
   visitedCanvas.height = 100;
+ 
   new Chart(visitedCanvas, {
     type: 'bar',
     responsive: true,
@@ -47,9 +46,7 @@ function showVisitedAnimals() {
 }
 showVisitedAnimals();
 function showFeededAnimals() {
-  //ממשו את הלוגיקה שמציגה את החיות שהאורח הנוכחי האכיל אותן
-
-  const feedCanvas = document.createElement('canvas');;
+  const feedCanvas = document.createElement('canvas');
   feedCanvas.id = 'feedChart';
 
   feedCanvas.height = 100;
@@ -98,11 +95,11 @@ function showFeededAnimals() {
 }
 showFeededAnimals();
 function showFavoriteAnimal() {
-  //ממשו את הלוגיקה שמציגה את החיה שהאורח ביקר הכי הרבה פעמים אצלה
   let maxVisited = 0;
   let favAnimalName = "";
   for (let index = 0; index < history.length; index++) {
     if (history[index].visited > maxVisited) {
+      
       maxVisited = history[index].visited;
       favAnimalName = history[index].name;
     }

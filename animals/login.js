@@ -1,6 +1,20 @@
 
 let searchVisitors = [...visitors]
 
+
+const dadGoToZoo = document.getElementById("wrap-zoo")
+const goToZoo = document.createElement("BUTTON")
+dadGoToZoo.appendChild(goToZoo)
+goToZoo.innerText="Go To Zoo"
+goToZoo.className= "button"
+
+goToZoo.addEventListener("click",()=>
+{
+window.location.href="/zoo.html"
+})
+
+
+
 const removeLoggedInClassFromVisitors = () => {
   [...document.getElementById("cards").children].forEach(element => {
     element.classList.remove("logged-in");
@@ -17,11 +31,11 @@ removeLoggedInClassFromVisitors();
 
 const getVisitorHtmlCard = (visitor) => {
   const template = `
-  <div>
+  <div class = "card">
   <img class="image-login" src="./images/${visitor.image}.png" alt="${visitor.name}"/>
-  <div>
+  <div class="text">
   <p>${visitor.name}</p>
-  <p>${visitor.coins}</p>
+  <p> coins: ${visitor.coins}</p>
   </div>
   </div>
   `
@@ -96,8 +110,6 @@ const getEmptycards = () => {
 
 
 function loginAsVisitor(visitorName) {
-  // תממשו את הלוגיקה של בחירת אורח שנכנס לגן החיות
-  // שמרו את האורח שבחרתם, בלוקל סטורג' כך שבכל העמודים נדע מי האורח הנוכחי
   localStorage.setItem("loggedInAs", (visitorName));
 
 }

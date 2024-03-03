@@ -1,12 +1,13 @@
 const selectedAnimalName = localStorage.getItem('selectedAnimal');
 const selectedAnimal = animals.filter(animal => animal.name == selectedAnimalName)[0];
 
+
+
 function renderAnimal() {
-  //הציגו את החיה שאליה עברתם מעמוד גן החיות ששמורה בלוקל סטורג'
-  // רנדרו את פרטי החיה לתוך האלמנטים המתאימים בהתאם לשדה הספציפי
   const visited = history.find(a => a.name == selectedAnimalName);
   visited.visited++
   localStorage.setItem('history', JSON.stringify(history));
+
   document.getElementById('name').innerHTML = selectedAnimal.name
   document.getElementById('color').innerHTML = selectedAnimal.color
   document.getElementById('weight').innerHTML = selectedAnimal.weight
@@ -19,9 +20,7 @@ const currentVisitorName = localStorage.getItem('loggedInAs');
 const currentVisitor = visitors.filter(visitor => visitor.name == currentVisitorName)[0];
 
 function renderRelatedAnimals() {
-  // ממשו את הלוגיקה שמרנדרת כרטיסיות של החיות ששדה ההאביטט שלהם זהה לחיה שמוצגת
-  // רנדרו אותן לתוך הדיב שמיועד להן עם האיידי related-animals
-  // ממשו את אותה לוגיקה של כרטיסיית חיה כמו בכרטיסיות בעמוד zoo.html
+
   const relatedElement = document.getElementById('related-animals');
   const relatedAnimals = animals.filter(animal => animal.habitat == selectedAnimal.habitat
     && animal.name != selectedAnimalName);
@@ -63,7 +62,9 @@ const buttonFeedMe = document.querySelector("#feed-animal")
 const dialog = document.createElement("dialog");
 dialog.id = "feed-me-dialog"
 
-function closeDialog(){
+
+
+function closeDialog() {
   dialog.close()
 }
 
@@ -74,26 +75,24 @@ buttonFeedMe.insertAdjacentElement("afterbegin", dialog);
 
 
 function visitorGotEaten() {
-  // ממשו את הלוגיקה של חיה שטורפת אורח
+
   visitors = visitors.filter(visitor => visitor.name != currentVisitorName)
   localStorage.setItem('visitors', JSON.stringify(visitors));
-  localStorage.setItem("loggedInAs","");
+  localStorage.setItem("loggedInAs", "");
 }
 
 function animalEscaped() {
-  //ממשו את הלוגיקה של חיה שבורחת מגן החיות
+
   animals = animals.filter(animal => animal.name != selectedAnimalName)
   localStorage.setItem('animals', JSON.stringify(animals));
-  localStorage.setItem("selectedAnimal","");
+  localStorage.setItem("selectedAnimal", "");
 }
 
 function feedAnimal() {
-  // ממשו את הלוגיקה של האכלת חיה
-  // במידה ואין מספיק מטבעות, טפלו בהתאם להנחיות במטלה
 
   if (currentVisitor.coins >= 2) {
     currentVisitor.coins -= 2;
-    localStorage.setItem('visitors',JSON.stringify(visitors))
+    localStorage.setItem('visitors', JSON.stringify(visitors))
     const feeded = history.find(a => a.name == selectedAnimalName);
     feeded.feeded++;
     localStorage.setItem('history', JSON.stringify(history))
@@ -102,11 +101,11 @@ function feedAnimal() {
   } else {
     if (selectedAnimal.isPredator) {
       showModal(`You got eaten by ${selectedAnimalName}!`)
-      dialog.append(getCloseButtonHTML("Back to Login", ()=>window.location.href="./login.html"));
+      dialog.append(getCloseButtonHTML("Back to Login", () => window.location.href = "./login.html"));
       visitorGotEaten()
     } else {
       showModal(`The ${selectedAnimalName} has esacped!`)
-      dialog.append(getCloseButtonHTML("Back to Zoo", ()=>window.location.href="./zoo.html"));
+      dialog.append(getCloseButtonHTML("Back to Zoo", () => window.location.href = "./zoo.html"));
       animalEscaped()
     }
   }
@@ -120,7 +119,11 @@ function showModal(message) {
 }
 
 buttonFeedMe.addEventListener("click", (e) => {
-  feedAnimal()
+  if (!currentVisitor) {
+    alert("You need to log in to feed the animal")
+  } else {
+    feedAnimal()
+  }
 });
 
 showNavBar();

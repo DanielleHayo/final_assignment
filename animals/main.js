@@ -102,9 +102,6 @@ let animals = [
   },
 ];
 
-
-// פונקציה זו טוענת עבורכם את המידע ההתחלתי של האפליקציה, במידה וקיים מידע בלוקל סטורג׳, היא תקח אותו משם
-// אל תשנו את הקוד בפונקציה הזו כדי לשמור על תקינות הטמפלייט
 function generateDataset() {
   if (localStorage.getItem("visitors")) {
     visitors = JSON.parse(localStorage.getItem("visitors"));
@@ -132,8 +129,6 @@ if (localStorage.getItem("history")) {
 
 //********************** */
 function logout() {
-  //ממשו את הלוגיקה שמתנתקת מאורח מחובר
-  // שימו לב לנקות את השדה המתאים בלוקל סטורג'
   const wantToLogOut = confirm("You are already logged in, do you want to switch?")
   if (wantToLogOut) {
     localStorage.setItem("loggedInAs", '');
@@ -141,37 +136,50 @@ function logout() {
   }
 }
 
+
 function updateUserInfo() {
   document.getElementById('user-info').innerText = currentVisitor ? `Hey ${currentVisitor.name}, coins: ${currentVisitor.coins}` : "Hey Guest!"
 }
 
 function showNavBar() {
   const navbar = document.createElement('nav');
-  navbar.style.position = "fixed";
-  navbar.style.display = "flex";
-  navbar.style.top = '0';
-  navbar.style.width = '100%';
-  navbar.style.justifyContent = 'space-evenly';
-  //TODO: move to global css with a class
-  // TODO: set loggedAs on change user
+  navbar.className="nav"
   const visitorsDropDownOptions = visitors.map(visitor => `<option value="${visitor.name}" ${visitor.name == currentVisitorName ? "selected" : ""} >${visitor.name}</option>`)
 
   navbar.innerHTML = `
 <div id="user-info"></div>
-<div>navigations</div>
+<div class="navigations">
+<button id ="button-zoo"> Go to Zoo</button>
+<button id ="button-login">Log in Page</button>
+<button id ="button-signUp">Sign Up Page</button>
+
+</div>
 <div><button id="reset">reset local storage</button></div>
 <div>
-<select  name="visitors" id="visitors-select">
+<select name="visitors" id="visitors-select">
 ${visitorsDropDownOptions}
 </select>
 </div>
 `;
   document.body.appendChild(navbar)
-  document.getElementById('reset').addEventListener('click', resetLocalStorage);
+  document.getElementById('reset').addEventListener("click",resetLocalStorage)
+  document.getElementById('button-zoo').addEventListener('click',()=>window.location.href="/zoo.html" );
+  document.getElementById('button-login').addEventListener('click', ()=>window.location.href="/login.html");
+  document.getElementById('button-signUp').addEventListener('click', ()=>window.location.href="/signUp.html");
+  
+ 
   updateUserInfo()
+
+  document.getElementById("visitors-select").addEventListener("change",(e)=>
+  { 
+    localStorage.setItem("loggedInAs",e.target.value)
+   updateUserInfo()
+   location.reload()
+    
+  })
 }
 
 function resetLocalStorage() {
   localStorage.clear()
-  window.location.href = "./login.html"
+  window.location.href = "/login.html"
 }

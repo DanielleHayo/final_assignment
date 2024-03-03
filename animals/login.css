@@ -1,42 +1,185 @@
-#searchbox{
+#searchbox {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    gap:15px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
-#inputvisitor{
-   
+
+*{
+    font-family: copperplate,papyrus,fantasy;
+    margin: 0;
+    padding: 0;
+  }
+
+.text{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color:  rgb(1, 61, 39);
 }
 
-#visitordialog{
+html {
+    width: 100%;
+    height: 100%;
+  }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    background-image:url(./images/loginback.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#cards {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 15px;
+   flex-wrap: wrap;
+}
+
+h2{
+ display: inline;
+ margin-right: 10px;
+ font-size: 30px;
+ color: rgb(0, 144, 91);
 
 }
-.visitor-card div{
-    display:flex ;
+
+h1{
+    position: relative;
+    top:30px;
+    font-size: 60px;
+    color: rgb(0, 144, 91);
+    text-shadow: -6px 2px 0px #000; 
+}
+
+input {
+    position: relative;
+    cursor: text;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0 16px;
+    height: 48px;
+    background-color: #fff;
+    border: 1px solid #d6d6e7;
+    border-radius: 3px;
+    color: rgb(35, 38, 59);
+    box-shadow: inset 0 1px 4px 0 rgb(119 122 175 / 30%);
+    overflow: hidden;
+    transition: all 100ms ease-in-out;
+  
+    :focus {
+      border-color: #3c4fe0;
+      box-shadow: 0 1px 0 0 rgb(35 38 59 / 5%);
+    }
+  }
+.card {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 15px;
     flex-wrap: wrap;
     width: 200px;
-    background-color: aqua;
+   
+    box-shadow: 5px 5px 5px 5px rgb(0, 144, 91);
+    background-color: rgba(208, 245, 231, 0.888);
 }
 
 
-#cards{
-    display:flex ;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-.image-login{
+.image-login {
     width: 200px;
     height: 200px;
 
 }
-.logged-in{
-    border:2px black solid
+
+.logged-in {
+    border: 5px rgb(12, 81, 56) solid
 }
+
+
+#wrap-zoo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+  }
+  
+  .button {
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: rgb(0, 144, 91);
+    background: linear-gradient(90deg, rgb(1, 121, 77) 0%, rgba(60, 161, 124, 0.64) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgb(238, 238, 238);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+   
+  }
+  
+  button::before {
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0, 255, 203, .64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+  
+  .button:hover,
+  .button:focus {
+    color: #313133;
+ 
+  }
+  
+  button:hover::before,
+  button:focus::before {
+    opacity: 1;
+  }
+  
+  button::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+  }
+  
+  button:hover::after,
+  button:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+
+   

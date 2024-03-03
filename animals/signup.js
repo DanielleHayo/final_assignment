@@ -41,11 +41,7 @@ function createNewVisitor(event) {
   window.location.href = "/login.html"
 }
 
-/**************************************
-  מימשתי עבורכם את ההאזנה לאירוע שליחת טופס
-  שימו לב כי האיידי של createForm
-  זהה לאיידי של הטופס בעמוד signup.html
-  אין לשנות אותו */
+
 const createForm = document.getElementById("create-visitor-form");
 if (createForm) {
   createForm.addEventListener("submit", createNewVisitor);
