@@ -196,5 +196,5 @@ ${visitorsDropDownOptions}
 
 function resetLocalStorage() {
   localStorage.clear()
-  window.location.href = "/login.html"
+  window.location.href = "../animal/login.html"
 }

@@ -10,7 +10,7 @@ goToZoo.className= "button"
 
 goToZoo.addEventListener("click",()=>
 {
-window.location.href="/zoo.html"
+window.location.href="../animal/zoo.html"
 })
 
 
