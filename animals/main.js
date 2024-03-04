@@ -179,7 +179,7 @@ ${visitorsDropDownOptions}
   document.getElementById('reset').addEventListener("click",resetLocalStorage)
   document.getElementById('button-zoo').addEventListener('click',()=>window.location.href="../animals/zoo.html" );
   document.getElementById('button-login').addEventListener('click', ()=>window.location.href="../animals/login.html");
-  document.getElementById('button-signUp').addEventListener('click', ()=>window.location.href="../animals/signUp.html");
+  document.getElementById('button-signUp').addEventListener('click', ()=>window.location.href="../animals/signup.html");
   document.getElementById('button-dashboard').addEventListener('click', ()=>window.location.href="../animals/dashboard.html");
   
  
