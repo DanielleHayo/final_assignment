@@ -177,10 +177,10 @@ ${visitorsDropDownOptions}
 `;
   document.body.appendChild(navbar)
   document.getElementById('reset').addEventListener("click",resetLocalStorage)
-  document.getElementById('button-zoo').addEventListener('click',()=>window.location.href="/zoo.html" );
-  document.getElementById('button-login').addEventListener('click', ()=>window.location.href="/login.html");
-  document.getElementById('button-signUp').addEventListener('click', ()=>window.location.href="/signUp.html");
-  document.getElementById('button-dashboard').addEventListener('click', ()=>window.location.href="/dashboard.html");
+  document.getElementById('button-zoo').addEventListener('click',()=>window.location.href="../animals/zoo.html" );
+  document.getElementById('button-login').addEventListener('click', ()=>window.location.href="../animals/login.html");
+  document.getElementById('button-signUp').addEventListener('click', ()=>window.location.href="../animals/signUp.html");
+  document.getElementById('button-dashboard').addEventListener('click', ()=>window.location.href="../animals/dashboard.html");
   
  
   updateUserInfo()
@@ -196,5 +196,5 @@ ${visitorsDropDownOptions}
 
 function resetLocalStorage() {
   localStorage.clear()
-  window.location.href = "../animal/login.html"
+  window.location.href = "../animals/login.html"
 }

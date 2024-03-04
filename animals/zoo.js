@@ -111,7 +111,7 @@ function renderAvailableAnimals() {
 
 function visitAnimal(animalName) {
   localStorage.setItem("selectedAnimal", animalName);
-  window.location.href="../animal/animal.html"
+  window.location.href="../animals/animal.html"
 }
 
 

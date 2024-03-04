@@ -38,7 +38,7 @@ function createNewVisitor(event) {
   makeVisitor(nameFromHtml)
   localStorage.setItem("visitors", JSON.stringify(visitors))
   console.log(visitors)
-  window.location.href = "../animal/login.html"
+  window.location.href = "../animals/login.html"
 }
 
 
