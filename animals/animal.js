@@ -28,10 +28,15 @@ function renderRelatedAnimals() {
     && animal.name != selectedAnimalName);
   (relatedAnimals.map(animal => {
     const template = `
-  <div>
+  <div >
     <img class="image-animal" src="./images/${animal.image}.png" alt="${animal.name}"/>
     <div>
       <p>${animal.name}</p>
+      <p>color : ${animal.color}</p>
+      <p>weight : ${animal.weight}</p>
+      <p>height : ${animal.height}</p>
+      <p>habitat : ${animal.habitat}</p>
+      <p>is predator? : ${animal.isPredator}</p>
     </div>
   </div>
   `
