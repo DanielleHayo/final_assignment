@@ -1,6 +1,6 @@
 const selectedAnimalName = localStorage.getItem('selectedAnimal');
 const selectedAnimal = animals.filter(animal => animal.name == selectedAnimalName)[0];
-
+const imgAnimalChoosen =document.getElementById("image")
 
 
 function renderAnimal() {
@@ -9,11 +9,13 @@ function renderAnimal() {
   localStorage.setItem('history', JSON.stringify(history));
 
   document.getElementById('name').innerHTML = selectedAnimal.name
-  document.getElementById('color').innerHTML = selectedAnimal.color
-  document.getElementById('weight').innerHTML = selectedAnimal.weight
-  document.getElementById('height').innerHTML = selectedAnimal.height
-  document.getElementById('habitat').innerHTML = selectedAnimal.habitat
-  document.getElementById('isPredator').innerHTML = selectedAnimal.isPredator
+  document.getElementById('color').innerHTML = `color : ${selectedAnimal.color}`
+  document.getElementById('weight').innerHTML = `weight : ${selectedAnimal.weight}`
+  document.getElementById('height').innerHTML = `height : ${selectedAnimal.height}`
+  document.getElementById('habitat').innerHTML = `habitat : ${selectedAnimal.habitat}`
+  document.getElementById('isPredator').innerHTML = `is predator? : ${selectedAnimal.isPredator}`
+  imgAnimalChoosen.innerHTML = ` <img src="./images/${selectedAnimal.image}.png" alt="${selectedAnimal.name}"/>`
+
 }
 window.addEventListener('load', renderAnimal)
 const currentVisitorName = localStorage.getItem('loggedInAs');
@@ -27,7 +29,7 @@ function renderRelatedAnimals() {
   (relatedAnimals.map(animal => {
     const template = `
   <div>
-    <img class="image-login" src="./images/${animal.image}.png" alt="${animal.name}"/>
+    <img class="image-animal" src="./images/${animal.image}.png" alt="${animal.name}"/>
     <div>
       <p>${animal.name}</p>
     </div>

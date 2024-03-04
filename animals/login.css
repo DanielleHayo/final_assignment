@@ -123,7 +123,6 @@ input {
     font-weight: 700;
     color: #313133;
     background: rgb(0, 144, 91);
-    background: linear-gradient(90deg, rgb(1, 121, 77) 0%, rgba(60, 161, 124, 0.64) 100%);
     border: none;
     border-radius: 1000px;
     box-shadow: 12px 12px 24px rgb(238, 238, 238);

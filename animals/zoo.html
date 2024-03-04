@@ -5,37 +5,40 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./zoo.css">
   <title>Zoo</title>
+  <link rel="stylesheet" href="./zoo.css">
   <script src="./main.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./navbar.css">
-
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./navbar.css">
+  
 </head>
 
 <body>
+  <div class="text">
   <h1>Zoo</h1>
   <h2>choose your Animal:</h2>
+</div>
   <div class="filters" id="allFilters">
     <input type="text" id="search-box"></input>
+
     <div class="dropdown">
       <button  class="btn btn-secondary dropdown-toggle btn-success" type="button" id="dropdownMenuButtonColor" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
        color
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonColor">
-        <a class="dropdown-item" name="color" href="#" >brown</a>
-        <a class="dropdown-item" name="color" href="#">grey</a>
+        <a class="dropdown-item" name="color" href="#" onclick="changeDropdownText(this,'dropdownMenuButtonColor')">brown</a>
+        <a class="dropdown-item" name="color" href="#" onclick="changeDropdownText(this,'dropdownMenuButtonColor')">grey</a>
    
       </div>
     </div>
@@ -45,19 +48,19 @@
         weigth
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonWeight">
-        <a class="dropdown-item" name="weigth" href="#">100</a>
-        <a class="dropdown-item" name="weigth" href="#">1200</a>
+        <a class="dropdown-item" name="weigth" href="#" onclick="changeDropdownText(this,'dropdownMenuButtonWeight')">100</a>
+        <a class="dropdown-item" name="weigth" href="#" onclick="changeDropdownText(this,'dropdownMenuButtonWeight')">1200</a>
      
       </div>
     </div>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle btn-success" type="button" id="dropdownMenuButtonHeight" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        height
+       height
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonHeight">
-        <a class="dropdown-item" name="height" href="#">200</a>
-        <a class="dropdown-item" name="height" href="#">120</a>
+        <a class="dropdown-item" name="height" href="#" onclick="changeDropdownText(this,'dropdownMenuButtonHeight')">200</a>
+        <a class="dropdown-item" name="height" href="#" onclick="changeDropdownText(this,'dropdownMenuButtonHeight')">120</a>
         
       </div>
     </div>
@@ -67,11 +70,11 @@
         habitat
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonHabitat">
-        <a class="dropdown-item" name="habitat" href="#">sea</a>
-        <a class="dropdown-item" name="habitat" href="#">land</a>
+        <a class="dropdown-item" name="habitat" href="#" onclick="changeDropdownText(this,'dropdownMenuButtonHabitat')">sea</a>
+        <a class="dropdown-item" name="habitat" href="#" onclick="changeDropdownText(this,'dropdownMenuButtonHabitat')">land</a>
       </div>
-    </div>
-    
+    </div>
+
   </div>
   <div id="animal-cards"></div>
   <script src="zoo.js"></script>

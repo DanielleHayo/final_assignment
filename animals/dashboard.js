@@ -1,8 +1,12 @@
+
+const currentVisitorName = localStorage.getItem('loggedInAs');
+const currentVisitor = visitors.filter(visitor => visitor.name == currentVisitorName)[0];
+
 function showVisitedAnimals() {
   const visitedCanvas = document.createElement('canvas');;
   visitedCanvas.id = 'visitedChart';
   visitedCanvas.height = 100;
- 
+
   new Chart(visitedCanvas, {
     type: 'bar',
     responsive: true,
@@ -84,7 +88,7 @@ function showFeededAnimals() {
         yAxes: [{
           display: true,
           ticks: {
-            max:25,
+            max: 25,
             beginAtZero: true
           }
         }]
@@ -99,7 +103,7 @@ function showFavoriteAnimal() {
   let favAnimalName = "";
   for (let index = 0; index < history.length; index++) {
     if (history[index].visited > maxVisited) {
-      
+
       maxVisited = history[index].visited;
       favAnimalName = history[index].name;
     }

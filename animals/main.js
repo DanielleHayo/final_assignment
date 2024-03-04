@@ -35,6 +35,7 @@ let animals = [
     height: 120,
     color: "brown",
     habitat: "land",
+    image: "Lion",
   },
   {
     name: "Elephant",
@@ -43,6 +44,7 @@ let animals = [
     height: 200,
     color: "grey",
     habitat: "land",
+    image: 'elephant',
   },
   {
     name: "Giraffe",
@@ -51,6 +53,7 @@ let animals = [
     height: 120,
     color: "brown",
     habitat: "land",
+    image: "giraffe"
   },
   {
     name: "Tiger",
@@ -59,6 +62,7 @@ let animals = [
     height: 120,
     color: "brown",
     habitat: "land",
+    image: "tiger",
   },
   {
     name: "Monkey",
@@ -67,6 +71,7 @@ let animals = [
     height: 120,
     color: "brown",
     habitat: "land",
+    image: "monkey",
   },
   {
     name: "Kangaroo",
@@ -75,6 +80,8 @@ let animals = [
     height: 120,
     color: "brown",
     habitat: "land",
+    image: "kangaroo",
+
   },
   {
     name: "Penguin",
@@ -83,6 +90,8 @@ let animals = [
     height: 120,
     color: "brown",
     habitat: "sea",
+    image: "penguin",
+
   },
   {
     name: "Zebra",
@@ -91,6 +100,8 @@ let animals = [
     height: 120,
     color: "brown",
     habitat: "land",
+    image: "zebra",
+
   },
   {
     name: "Cheetah",
@@ -99,6 +110,8 @@ let animals = [
     height: 120,
     color: "brown",
     habitat: "land",
+    image: "cheeta",
+
   },
 ];
 
@@ -149,14 +162,15 @@ function showNavBar() {
   navbar.innerHTML = `
 <div id="user-info"></div>
 <div class="navigations">
-<button id ="button-zoo"> Go to Zoo</button>
-<button id ="button-login">Log in Page</button>
-<button id ="button-signUp">Sign Up Page</button>
+<button class ="btn" id ="button-zoo"> Go to Zoo</button>
+<button class ="btn" id ="button-login">Log in Page</button>
+<button class ="btn" id ="button-signUp">Sign Up Page</button>
+<button class ="btn" id ="button-dashboard">dashboard Page</button>
 
 </div>
-<div><button id="reset">reset local storage</button></div>
+<div><button class ="btn" id="reset">reset local storage</button></div>
 <div>
-<select name="visitors" id="visitors-select">
+<select class ="btn" name="visitors" id="visitors-select">
 ${visitorsDropDownOptions}
 </select>
 </div>
@@ -166,6 +180,7 @@ ${visitorsDropDownOptions}
   document.getElementById('button-zoo').addEventListener('click',()=>window.location.href="/zoo.html" );
   document.getElementById('button-login').addEventListener('click', ()=>window.location.href="/login.html");
   document.getElementById('button-signUp').addEventListener('click', ()=>window.location.href="/signUp.html");
+  document.getElementById('button-dashboard').addEventListener('click', ()=>window.location.href="/dashboard.html");
   
  
   updateUserInfo()
