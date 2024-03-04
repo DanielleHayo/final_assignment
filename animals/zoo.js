@@ -127,7 +127,7 @@ window.addEventListener("load", filterOnLoad)
 
 const searchBox = () => {
   const queryinput = document.getElementById("search-box");
-  queryinput.placeholder = "search visitor..."
+  queryinput.placeholder = "search animal..."
 
   queryinput.oninput = (e) => {
     searchAnimals = animals.filter(((animal) =>
