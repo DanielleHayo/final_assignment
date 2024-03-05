@@ -1,8 +1,8 @@
 const colorHtmls = document.querySelectorAll('a[name="color"]');
 colorHtmls.forEach(colorElement => colorElement.addEventListener("click", (e) => setFilter('color', colorElement.innerHTML)))
 
-const weigthhHtmls = document.querySelectorAll('a[name="weigth"]');
-weigthhHtmls.forEach(weigthElement => weigthElement.addEventListener("click", (e) => setFilter('weigth', weigthElement.innerHTML)))
+const weigthhHtmls = document.querySelectorAll('a[name="weight"]');
+weigthhHtmls.forEach(weigthElement => weigthElement.addEventListener("click", (e) => setFilter('weight', weigthElement.innerHTML)))
 
 const heightHtmls = document.querySelectorAll('a[name="height"]');
 heightHtmls.forEach(heightElement => heightElement.addEventListener("click", (e) => setFilter('height', heightElement.innerHTML)))
@@ -17,35 +17,23 @@ searchAnimals = [...animals]
 const Filters= document.getElementById("allFilters")
 const resetFilter = document.createElement("BUTTON")
 Filters.appendChild(resetFilter)
-resetFilter.innerText="reset filters"
+resetFilter.innerText="reset filters";
+const filterKeys = ['color', 'weight', 'height', 'habitat'];
+
+const toCapitalizeFirstLetter = (text) => text.charAt(0).toUpperCase()+text.slice(1);
+
+const resetSingleFilter = (filterKey) =>{
+    const filterButton = document.getElementById(`dropdownMenuButton${toCapitalizeFirstLetter(filterKey)}`)
+    filterButton.innerText=filterKey;
+    filterButton.classList.remove("active");
+    localStorage.removeItem(`${filterKey}Filter`);
+}
+
 resetFilter.addEventListener("click",()=>
 {
   searchAnimals = [...animals]
-  renderAvailableAnimals()
-
-  localStorage.removeItem("habitatFilter")
-  localStorage.removeItem("weigthFilter")
-  localStorage.removeItem("colorFilter")
-  localStorage.removeItem("heightFilter")
- 
-  const colorButton = document.getElementById("dropdownMenuButtonColor")
-  colorButton.innerText="color"
-  colorButton.classList.remove("active");
-
-  const weigthButton = document.getElementById("dropdownMenuButtonWeight")
-  weigthButton.innerText="weigth"
-  weigthButton.classList.remove("active");
-
-
-  const heightButton = document.getElementById("dropdownMenuButtonHeight")
-  heightButton.innerText="height"
-  heightButton.classList.remove("active");
-
-
-  const habitatButton = document.getElementById("dropdownMenuButtonHabitat")
-  habitatButton.innerText="habitat"
-  habitatButton.classList.remove("active");
-
+  renderAvailableAnimals();
+  filterKeys.forEach(filterKey=>resetSingleFilter(filterKey))
 })
 
 
@@ -70,12 +58,12 @@ const getAnimalHtmlCard = (animal) => {
 }
 
 function filterOnLoad() {
-  const filterKeys = ['color', 'weigth', 'height', 'habitat']
   filterKeys.forEach(filterKey => {
     const filterValue = localStorage.getItem(`${filterKey}Filter`);
-    if (filterValue)
+    if (filterValue){
+      changeDropdownText(filterValue,`dropdownMenuButton${toCapitalizeFirstLetter(filterKey)}`)
       searchAnimals = searchAnimals.filter(animal => animal[filterKey] == filterValue);
-
+    }
   })
 
   renderAvailableAnimals()
@@ -144,9 +132,9 @@ const currentVisitor = visitors.filter(visitor => visitor.name == currentVisitor
 showNavBar();
 
 
-function changeDropdownText(selectedOption, buttonId) {
+function changeDropdownText(selectedOptionText, buttonId) {
   const dropdownButton = document.getElementById(buttonId);
-  dropdownButton.innerText = selectedOption.innerText;
+  dropdownButton.innerText = selectedOptionText;
   dropdownButton.classList.add("active");
 }
 

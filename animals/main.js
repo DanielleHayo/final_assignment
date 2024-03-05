@@ -162,15 +162,15 @@ function showNavBar() {
   navbar.innerHTML = `
 <div id="user-info"></div>
 <div class="navigations">
-<button class ="btn" id ="button-zoo"> Go to Zoo</button>
-<button class ="btn" id ="button-login">Log in Page</button>
-<button class ="btn" id ="button-signUp">Sign Up Page</button>
-<button class ="btn" id ="button-dashboard">dashboard Page</button>
+<button class ="nav-btn" id ="button-zoo"> Go to Zoo</button>
+<button class ="nav-btn" id ="button-login">Log in Page</button>
+<button class ="nav-btn" id ="button-signUp">Sign Up Page</button>
+<button class ="nav-btn" id ="button-dashboard">dashboard Page</button>
 
 </div>
-<div><button class ="btn" id="reset">reset local storage</button></div>
+<div><button class ="nav-btn" id="reset">reset local storage</button></div>
 <div>
-<select class ="btn" name="visitors" id="visitors-select">
+<select class ="nav-btn" name="visitors" id="visitors-select">
 ${visitorsDropDownOptions}
 </select>
 </div>
